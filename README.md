@@ -23,5 +23,5 @@ Go through Spotipy's [docs](https://github.com/plamere/spotipy#installation) for
 That's it!
 
 ```shell
-python sort_spotify_search.py
+python sort_spotify_search.py -q SEARCH_QUERY [-n NUMBER_OF_RESULTS]
 ```
