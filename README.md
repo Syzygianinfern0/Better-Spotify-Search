@@ -19,7 +19,12 @@ Just used [Spotipy](https://spotipy.readthedocs.io/)'s API.
 
 ## Usage 👨‍💻
 
-Go through Spotipy's [docs](https://github.com/plamere/spotipy#installation) for installation and getting API keys.
+Getting API Keys: 
+- Create an app on https://developers.spotify.com/. Add your new ID and SECRET to your environment:
+
+Contributing: 
+- Use ```pip install -r requirements.txt``` to install the requirements.
+- Go through Spotipy's [docs](https://github.com/plamere/spotipy#installation) for reading about the functionalities.
 That's it!
 
 ```shell
