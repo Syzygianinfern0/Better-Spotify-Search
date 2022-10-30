@@ -28,8 +28,8 @@ def main():
     results = sp.search(args.q, 50, type="playlist")["playlists"]["items"]
     likes = {playlist["id"]: sp.playlist(playlist["id"])["followers"]["total"] for playlist in results}
     sorted_results = sorted(results, key=lambda playlist: likes[playlist["id"]], reverse=True)
-    for n in range(0, int(args.n)):
-        print(f"{sorted_results[n]['name'][:30]:<30}\t{likes[sorted_results[n]['id']]:<10}\t{sorted_results[n]['external_urls']['spotify']:>}")
+    for result in sorted_results[:args.n]:
+        print(f"{result['name'][:30]:<30}\t{likes[result['id']]:<10}\t{result['external_urls']['spotify']:>}")
 
 
 if __name__ == "__main__":
