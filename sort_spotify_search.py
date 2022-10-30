@@ -34,7 +34,7 @@ def main():
 
     sorted_table.append(['Title', 'Likes', 'URL'])
 
-    for result in sorted_results:
+    for result in sorted_results[:args.n]:
         row_list = []
         row_list.append(result['name'])
         row_list.append(likes[result['id']])
