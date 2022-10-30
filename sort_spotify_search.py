@@ -10,8 +10,8 @@ SECRET = None
 def parse_args():
     parser = ArgumentParser()
     parser.add_argument("-q", help="Query")
-    parser.add_argument("-n", default=20, help="Number of results to display")
-    parser.add_argument("--fetch", default=50)
+    parser.add_argument("-n", default=20,  type=int, help="Number of results to display")
+    parser.add_argument("--fetch", default=50, type=int)
     args = parser.parse_args()
 
     return args
