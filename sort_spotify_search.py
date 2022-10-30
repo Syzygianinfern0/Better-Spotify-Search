@@ -1,4 +1,5 @@
 from argparse import ArgumentParser
+from tabulate import tabulate
 
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
@@ -29,8 +30,18 @@ def main():
     results = sp.search(args.q, args.fetch, type="playlist")["playlists"]["items"]
     likes = {playlist["id"]: sp.playlist(playlist["id"])["followers"]["total"] for playlist in results}
     sorted_results = sorted(results, key=lambda playlist: likes[playlist["id"]], reverse=True)
-    for result in sorted_results[:args.n]:
-        print(f"{result['name'][:30]:<30}\t{likes[result['id']]:<10}\t{result['external_urls']['spotify']:>}")
+    sorted_table = []
+
+    sorted_table.append(['Title', 'Likes', 'URL'])
+
+    for result in sorted_results:
+        row_list = []
+        row_list.append(result['name'])
+        row_list.append(likes[result['id']])
+        row_list.append(result['external_urls']['spotify'])
+        sorted_table.append(row_list)
+    
+    print(tabulate(sorted_table, headers='firstrow', tablefmt='fancy_grid'))
 
 
 if __name__ == "__main__":
