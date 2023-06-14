@@ -1,5 +1,10 @@
 ### IDE Configs
 .idea/
+.vscode/
+
+### Credentials
+.spotify-cache
+DONTCOMMITCREDS.sh
 
 ### Python template
 # Byte-compiled / optimized / DLL files

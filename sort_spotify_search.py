@@ -2,6 +2,7 @@ import os
 from argparse import ArgumentParser
 
 import spotipy
+from spotipy import CacheFileHandler
 from spotipy.oauth2 import SpotifyClientCredentials
 from tabulate import tabulate
 
@@ -24,6 +25,7 @@ def sort_spotify_search(query, n=20, fetch=50):
         auth_manager=SpotifyClientCredentials(
             client_id=ID,
             client_secret=SECRET,
+            cache_handler=CacheFileHandler(cache_path=".spotify-cache"),
         ),
     )
 
